@@ -214,7 +214,8 @@ extension HKCorrelation {
                                        "diastolicValue": diastolicValue,
                                        "startDate": self.startDate.timeIntervalSince1970,
                                        "endDate": self.endDate.timeIntervalSince1970,
-                                       "correlationSampleUUID": correlationSampleUuid?.uuidString ?? ""
+                                       "correlationSampleUUID": correlationSampleUuid?.uuidString ?? "",
+									   HKMetadataKeyWasUserEntered: self.metadata?[HKMetadataKeyWasUserEntered] as? Bool ?? false
         ]
         let sample = HKQuantitySample(type: quantityType, quantity: systolicQuantity, start: dateRange.start, end: dateRange.end, metadata: metadata)
         return sample
